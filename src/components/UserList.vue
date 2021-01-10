@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import UserListElement from '@/components/UserListElement.vue';
 import { mapState } from 'vuex';
 

@@ -1,16 +1,20 @@
 <template>
   <div class="UserListElement">
-    <p class="UserListElement-userName" @click="goTo()">{{ user.firstName }} {{ user.lastName }}</p>
+    <p class="UserListElement-userName" @click="goTo">
+      {{ user.firstName }} {{ user.lastName }} {{ user.email }}
+    </p>
     <button class="UserListElement-deleteUserButton" @click="deleteUser(user)">
       <i class="UserListElement-deleteIcon material-icons">clear</i>
     </button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+
 import { mapActions } from 'vuex';
 
-export default {
+export default Vue.extend({
   name: 'UserListElement',
   props: {
     user: {
@@ -24,7 +28,7 @@ export default {
       this.$router.push({ name: 'userDetails', params: { id: this.user.id } });
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

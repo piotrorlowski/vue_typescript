@@ -18,7 +18,7 @@
       ></b-form-input>
     </b-form-group>
     <b-form-group
-      id="fieldset-1"
+      id="fieldset-2"
       class="UserAdd-inputGroup"
       label="Enter last name"
       label-for="userLastName"
@@ -33,22 +33,45 @@
         trim
       ></b-form-input>
     </b-form-group>
-    <b-button class="UserAdd-button" @click="addUser({ userFirstName, userLastName })">
+    <b-form-group
+      id="fieldset-3"
+      class="UserAdd-inputGroup"
+      label="Enter email"
+      label-for="userEmail"
+      label-class="UserAdd-inputLabel"
+    >
+      <b-form-input
+        id="userEmail"
+        v-model="userEmail"
+        class="UserAdd-input"
+        autocomplete="off"
+        type="email"
+        trim
+      ></b-form-input>
+    </b-form-group>
+    <p class="UserAdd-errorMessage" v-show="error">
+      {{ error }}
+    </p>
+    <b-button class="UserAdd-button" @click="addUser({ userFirstName, userLastName, userEmail })">
       Add new user
     </b-button>
   </div>
 </template>
 
-<script>
-import { mapActions } from 'vuex';
+<script lang="ts">
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'UserAdd',
-  data() {
+  data(): Record<string, string> {
     return {
       userFirstName: '',
       userLastName: '',
+      userEmail: '',
     };
+  },
+  computed: {
+    ...mapState('users', ['error']),
   },
   methods: {
     ...mapActions('users', ['addUser']),
@@ -66,7 +89,7 @@ export default {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  padding: 50px 0 0;
+  padding: 50px 0 50px;
 }
 .UserAdd-inputGroup {
   width: 90%;
@@ -101,7 +124,7 @@ export default {
   height: 50px;
   font-size: 24px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.33);
-  margin: 50px 0 0;
+  margin: 30px 0 0;
   background-color: #d7fffe;
   border: 1px solid #d7fffe;
   color: #236e98;
@@ -119,5 +142,10 @@ export default {
       }
     }
   }
+}
+.UserAdd-errorMessage {
+  color: red;
+  font-weight: 700;
+  font-size: 30px;
 }
 </style>

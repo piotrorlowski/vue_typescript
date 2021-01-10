@@ -1,4 +1,5 @@
 export default {
   ADD_USER: 'ADD_USER',
   DELETE_USER: 'DELETE_USER',
+  ADD_ERROR_MESSAGE: 'ADD_ERROR_MESSAGE',
 };
