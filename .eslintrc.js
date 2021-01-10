@@ -5,8 +5,10 @@ module.exports = {
   },
   extends: [
     'plugin:vue/essential',
+    'plugin:prettier/recommended',
     '@vue/airbnb',
     '@vue/typescript/recommended',
+    'eslint:recommended',
   ],
   parserOptions: {
     ecmaVersion: 2020,
