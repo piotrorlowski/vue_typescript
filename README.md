@@ -1,5 +1,14 @@
 # vue_typescript
 
+Vue 2
+TypeScript
+Babel
+Router
+Vuex
+Eslint + AirBnB
+Dart-Sass
+Jest
+
 ## Project setup
 ```
 yarn install
