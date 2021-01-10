@@ -7,6 +7,7 @@ export default {
       context.commit(types.ADD_ERROR_MESSAGE, 'User already exists');
     } else {
       context.commit(types.ADD_USER, data);
+      context.commit(types.ADD_ERROR_MESSAGE, '');
     }
   },
   deleteUser(context: Record<string, any>, data: Record<string, number>) {
