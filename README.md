@@ -1,5 +1,6 @@
 # vue_typescript
 
+```
 Vue 2
 TypeScript
 Babel
@@ -8,6 +9,7 @@ Vuex
 Eslint + AirBnB
 Dart-Sass
 Jest
+```
 
 ## Project setup
 ```
